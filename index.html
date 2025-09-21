@@ -4,17 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Intel: Sustainability Through the Ages</title>
-  <meta name="theme-color" content="#0068B5" />
+
+  <!-- Custom CSS for hero + timeline -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Bootstrap CSS (LTR by default, swapped to RTL dynamically) -->
+  <link id="bs-css" rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+  <!-- Bootstrap Icons (for subtle heading glyphs) -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 </head>
 <body>
-  <!-- Skip link for accessibility -->
-  <a class="skip-link" href="#timeline">Skip to timeline</a>
 
-  <!-- Header / Hero Section -->
-  <header class="hero">
-    <div class="hero__inner container">
-      <img class="hero__logo" src="img/intel-header-logo.svg" alt="Intel Logo" />
+  <!-- HERO -->
+  <header class="hero text-center py-5">
+    <div class="container">
+      <img src="img/intel-header-logo.svg" alt="Intel Logo" class="hero__logo" fetchpriority="high" decoding="async" />
       <h1 class="hero__title">Sustainability Through the Ages</h1>
       <p class="hero__subtitle">
         Explore Intel's journey through time, discovering how our commitment
@@ -24,126 +31,245 @@
     </div>
   </header>
 
-  <!-- Timeline Cards Section -->
-  <main class="container">
-    <section id="timeline" class="timeline" aria-label="Intel sustainability timeline">
-
+  <!-- TIMELINE -->
+  <section class="container my-5">
+    <div class="timeline">
       <!-- Card 1: 1968 -->
-      <article class="card" tabindex="0">
-        <div class="card__year">1968</div>
+      <article class="card">
+        <span class="card__year">1968</span>
         <h3 class="card__title">Intel Founded</h3>
-        <img class="card__img" src="img/1968.jpeg" alt="Intel employees in front of headquarters, 1968" />
-        <p class="card__text">
-          Robert Noyce and Gordon Moore rename the newly formed company
-          NM Electronics to Intel Corporation, laying the foundation for
-          decades of technological innovation.
+        <img src="img/1968.jpeg" alt="Intel headquarters, 1968" class="card__img" loading="lazy" decoding="async" />
+        <p>
+          Robert Noyce and Gordon Moore rename NM Electronics to Intel Corporation,
+          laying the foundation for decades of innovation.
         </p>
       </article>
 
       <!-- Card 2: 1971 -->
-      <article class="card" tabindex="0">
-        <div class="card__year">1971</div>
+      <article class="card">
+        <span class="card__year">1971</span>
         <h3 class="card__title">First Microprocessor</h3>
-        <img class="card__img" src="img/4004.jpg" alt="Intel 4004 microprocessor" />
-        <p class="card__text">
+        <img src="img/4004.jpg" alt="Intel 4004 microprocessor" class="card__img" loading="lazy" decoding="async" />
+        <p>
           Intel debuts the 4004, the world's first commercial microprocessor,
-          igniting the microprocessor revolution and propelling the future
-          of computing devices.
+          igniting the microprocessor revolution.
         </p>
       </article>
 
       <!-- Card 3: 1978 -->
-      <article class="card" tabindex="0">
-        <div class="card__year">1978</div>
+      <article class="card">
+        <span class="card__year">1978</span>
         <h3 class="card__title">8086 Processor</h3>
-        <img class="card__img" src="img/8086.jpg" alt="Intel 8086 processor" />
-        <p class="card__text">
-          Launch of the 8086 processor, establishing the x86 architecture
-          that drives countless PCs and servers in the modern era.
+        <img src="img/8086.jpg" alt="Intel 8086 chip" class="card__img" loading="lazy" decoding="async" />
+        <p>
+          Launch of the 8086 processor, establishing the x86 architecture that drives countless PCs and servers.
         </p>
       </article>
 
       <!-- Card 4: 1985 -->
-      <article class="card" tabindex="0">
-        <div class="card__year">1985</div>
+      <article class="card">
+        <span class="card__year">1985</span>
         <h3 class="card__title">386 Processor</h3>
-        <img class="card__img" src="img/386.jpg" alt="Intel 386 microprocessor" />
-        <p class="card__text">
-          Intel introduces the 386 processor with 32-bit architecture,
-          ushering in a new era of performance and multitasking for
-          personal computers.
+        <img src="img/386.jpg" alt="Intel 386 processor" class="card__img" loading="lazy" decoding="async" />
+        <p>
+          Intel introduces the 386 with 32-bit architecture, ushering in multitasking for personal computers.
         </p>
       </article>
 
       <!-- Card 5: 2006 -->
-      <article class="card" tabindex="0">
-        <div class="card__year">2006</div>
+      <article class="card">
+        <span class="card__year">2006</span>
         <h3 class="card__title">Peak GHG Emissions</h3>
-        <img class="card__img" src="img/netzero.jpg" alt="Intel sustainability and emissions reduction concept" />
-        <p class="card__text">
-          This year marks Intel's highest annual greenhouse gas emissions
-          for operations. Over subsequent years, Intel invests heavily in
-          chemical abatement, renewable energy, and energy-efficient
-          manufacturing to reverse this trend.
+        <img src="img/energy.jpg" alt="Solar panels" class="card__img" loading="lazy" decoding="async" />
+        <p>
+          Intel’s highest annual greenhouse gas emissions. Later years invested in abatement, renewable energy, and efficiency.
         </p>
       </article>
 
       <!-- Card 6: 2020 -->
-      <article class="card" tabindex="0">
-        <div class="card__year">2020</div>
+      <article class="card">
+        <span class="card__year">2020</span>
         <h3 class="card__title">RISE Strategy</h3>
-        <img class="card__img" src="img/rise.webp" alt="Intel RISE strategy graphic" />
-        <p class="card__text">
-          Intel launches its RISE (Responsible, Inclusive, Sustainable,
-          Enabling) strategy and 2030 goals, aiming to drive industry-wide
-          progress on climate action, water stewardship, and waste reduction.
+        <img src="img/rise.webp" alt="Intel RISE strategy" class="card__img" loading="lazy" decoding="async" />
+        <p>
+          Intel launches its RISE strategy with 2030 goals to drive progress on climate action, water, and waste reduction.
         </p>
       </article>
 
       <!-- Card 7: 2022 -->
-      <article class="card" tabindex="0">
-        <div class="card__year">2022</div>
-        <h3 class="card__title">Net-Zero By 2040</h3>
-        <img class="card__img" src="img/netzero.jpg" alt="Intel net-zero by 2040 graphic" />
-        <p class="card__text">
-          Intel announces its commitment to achieve net-zero greenhouse
-          gas emissions (Scope 1 and 2) across its global operations
-          by 2040, building on years of environmental initiatives.
+      <article class="card">
+        <span class="card__year">2022</span>
+        <h3 class="card__title">Net-Zero by 2040</h3>
+        <img src="img/netzero.jpg" alt="Net-Zero announcement" class="card__img" loading="lazy" decoding="async" />
+        <p>
+          Intel commits to achieve net-zero greenhouse gas emissions (Scope 1 &amp; 2) globally by 2040.
         </p>
       </article>
 
       <!-- Card 8: 2023 -->
-      <article class="card" tabindex="0">
-        <div class="card__year">2023</div>
+      <article class="card">
+        <span class="card__year">2023</span>
         <h3 class="card__title">Renewable Electricity</h3>
-        <img class="card__img" src="img/energy.jpg" alt="Solar panels representing renewable electricity" />
-        <p class="card__text">
-          The company achieves 99% renewable electricity usage worldwide,
-          helping to drastically lower carbon emissions and driving progress
-          toward Intel's long-term sustainability goals.
+        <img src="img/energy.jpg" alt="Renewable electricity solar farm" class="card__img" loading="lazy" decoding="async" />
+        <p>
+          Intel achieves 99% renewable electricity usage worldwide.
         </p>
       </article>
 
       <!-- Card 9: 2024 -->
-      <article class="card" tabindex="0">
-        <div class="card__year">2024</div>
+      <article class="card">
+        <span class="card__year">2024</span>
         <h3 class="card__title">Sustainability Summit</h3>
-        <img class="card__img" src="img/summit.webp" alt="Intel Sustainability Summit 2024 panel" />
-        <p class="card__text">
-          Intel hosts its first Sustainability Summit, uniting suppliers,
-          government officials, and industry leaders to collaborate on
-          next-generation sustainable semiconductor manufacturing.
+        <img src="img/summit.webp" alt="Sustainability Summit 2024" class="card__img" loading="lazy" decoding="async" />
+        <p>
+          Intel hosts its first Sustainability Summit with suppliers, government officials, and industry leaders.
         </p>
       </article>
-    </section>
-
+    </div>
     <p class="hint">Scroll to view timeline | Hover over cards to learn more!</p>
-  </main>
+  </section>
 
-  <footer class="footer">
-    <div class="container footer__inner">
+  <!-- THREE-COLUMN SECTION -->
+  <section class="py-5 bg-light" aria-labelledby="more-heading">
+    <div class="container">
+      <h2 id="more-heading" class="h3 fw-bold text-center mb-4">Explore More of Intel’s Work</h2>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h3 class="h5"><i class="bi bi-recycle text-body-secondary me-2"></i>RISE Strategy</h3>
+              <p>Intel sets ambitious 2030 goals across climate, water, and waste.</p>
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h3 class="h5"><i class="bi bi-bullseye text-body-secondary me-2"></i>Commitment</h3>
+              <p>In 2022, Intel pledged net-zero Scope 1 &amp; 2 emissions by 2040.</p>
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h3 class="h5"><i class="bi bi-droplet-half text-body-secondary me-2"></i>Water &amp; Waste</h3>
+              <p>Intel conserves water, restores watersheds, and recycles to reduce waste.</p>
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion for interactivity -->
+      <div class="row mt-5">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="accordion" id="faq">
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="q1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1" aria-expanded="true" aria-controls="a1">
+                  What is RTL and why does it matter?
+                </button>
+              </h3>
+              <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#faq">
+                <div class="accordion-body">RTL is the reading direction for Arabic, Hebrew, Persian, and Urdu. Supporting RTL makes content usable for global audiences.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="q2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2" aria-expanded="false" aria-controls="a2">
+                  How does this page switch to RTL?
+                </button>
+              </h3>
+              <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faq">
+                <div class="accordion-body">A script watches the page language and toggles dir="rtl" while swapping to Bootstrap’s RTL CSS.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBSCRIPTION FORM -->
+  <section class="py-5" aria-labelledby="subscribe-heading">
+    <div class="container">
+      <h2 id="subscribe-heading" class="h4 fw-bold text-center mb-3">Subscribe to our Newsletter</h2>
+      <form class="row g-3 justify-content-center needs-validation" novalidate>
+        <div class="col-md-5">
+          <label for="name" class="form-label">Full Name</label>
+          <input id="name" type="text" class="form-control" required />
+          <div class="invalid-feedback">Please enter your name.</div>
+        </div>
+        <div class="col-md-5">
+          <label for="email" class="form-label">Email</label>
+          <input id="email" type="email" class="form-control" required />
+          <div class="invalid-feedback">Please enter a valid email.</div>
+        </div>
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-light py-4 mt-auto">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
       <small>© Intel — Educational project.</small>
+      <nav>
+        <a class="link-light me-3" href="#">Privacy</a>
+        <a class="link-light me-3" href="#">Terms</a>
+        <a class="link-light" href="#">Contact</a>
+      </nav>
     </div>
   </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- RTL auto-switch script -->
+  <script>
+    (function () {
+      const html = document.documentElement;
+      const link = document.getElementById('bs-css');
+      const RTL_LANGS = new Set(['ar','he','fa','ur']);
+      const LTR = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
+      const RTL = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css';
+
+      function applyDir() {
+        const lang = (html.getAttribute('lang') || 'en').slice(0,2).toLowerCase();
+        const isRTL = RTL_LANGS.has(lang) || html.getAttribute('dir') === 'rtl';
+        html.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+        if (link && link.getAttribute('href') !== (isRTL ? RTL : LTR)) {
+          link.setAttribute('href', isRTL ? RTL : LTR);
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', applyDir);
+      } else {
+        applyDir();
+      }
+
+      new MutationObserver(applyDir).observe(html, { attributes: true, attributeFilter: ['lang','dir'] });
+    })();
+  </script>
+
+  <!-- Bootstrap form validation -->
+  <script>
+    (() => {
+      'use strict';
+      const forms = document.querySelectorAll('.needs-validation');
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', e => {
+          if (!form.checkValidity()) { e.preventDefault(); e.stopPropagation(); }
+          form.classList.add('was-validated');
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
