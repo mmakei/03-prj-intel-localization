@@ -1,0 +1,235 @@
+/* ========== CSS RESET (modern minimal) ========== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+img { display: block; max-width: 100%; height: auto; }
+button, a { color: inherit; }
+
+/* ========== THEME ========== */
+:root{
+  --intel-blue: #0068B5;   /* Intel primary */
+  --intel-blue-2: #0F75BC; /* lighter accent */
+  --ink: #0A0A0B;          /* near-black text */
+  --muted: #6B7380;        /* muted text */
+  --bg: #0B1B2B;           /* deep navy for hero */
+  --card: #0F2235;         /* card bg on hero, used as shadow tint */
+  --surface: #FFFFFF;      /* page surface */
+  --ring: #7CC8FF;         /* focus ring */
+  --radius-xl: 20px;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --shadow-1: 0 8px 20px rgba(0,0,0,0.12);
+  --shadow-2: 0 14px 30px rgba(0,0,0,0.18);
+  --shadow-blue: 0 10px 24px rgba(0,104,181,0.22);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.45;
+  color: var(--ink);
+  background: var(--surface);
+}
+
+/* Containers */
+.container {
+  width: min(1200px, 92vw);
+  margin-inline: auto;
+}
+
+/* Skip link for keyboard users */
+.skip-link {
+  position: absolute;
+  top: -48px; left: 16px;
+  padding: 10px 14px;
+  background: var(--intel-blue);
+  color: white;
+  border-radius: 10px;
+  transition: top .2s;
+  text-decoration: none;
+  z-index: 999;
+}
+.skip-link:focus { top: 12px; }
+
+/* ========== HERO ========== */
+.hero {
+  background:
+    radial-gradient(1200px 600px at 10% 10%, rgba(124,200,255,0.18), transparent 60%),
+    linear-gradient(135deg, #02203C 0%, var(--bg) 60%),
+    linear-gradient(0deg, rgba(0,0,0,0.1), rgba(0,0,0,0.1));
+  color: #EAF6FF;
+  padding: clamp(48px, 7vw, 96px) 0;
+  border-bottom: 1px solid rgba(124,200,255,0.18);
+}
+.hero__inner { text-align: center; }
+.hero__logo {
+  width: clamp(120px, 14vw, 180px);
+  margin: 0 auto 20px;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.25));
+}
+.hero__title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 10px 0 8px;
+  font-size: clamp(28px, 5vw, 48px);
+}
+.hero__subtitle {
+  max-width: 70ch;
+  margin: 0 auto;
+  font-size: clamp(14px, 2.2vw, 18px);
+  color: #CFEAFF;
+  opacity: 0.95;
+}
+
+/* ========== TIMELINE (Flexbox + Scroll Snap) ========== */
+.hint {
+  text-align: center;
+  color: var(--muted);
+  margin: 18px 0 48px;
+  font-size: 14px;
+}
+
+/* OUTER SCROLLER — FLEX instead of grid */
+.timeline {
+  --gap: clamp(14px, 2.4vw, 22px);
+  display: flex;                         /* FLEXBOX per rubric */
+  gap: var(--gap);
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 26px 6px 10px;
+  margin-top: -40px;
+  scroll-snap-type: x mandatory;         /* LevelUp: Scroll Snap */
+  scroll-padding-inline: 10px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Pretty scrollbar (WebKit + Firefox) */
+.timeline::-webkit-scrollbar { height: 10px; }
+.timeline::-webkit-scrollbar-track { background: #EAF2F9; border-radius: 999px; }
+.timeline::-webkit-scrollbar-thumb { background: #C7DDF3; border-radius: 999px; }
+.timeline { scrollbar-color: #C7DDF3 #EAF2F9; scrollbar-width: thin; }
+
+/* Timeline cards */
+.card {
+  flex: 0 0 min(420px, 90vw);            /* width for horizontal scroller */
+  position: relative;
+  background: #F9FBFE;
+  border: 1px solid #DDE8F4;
+  border-radius: var(--radius-xl);
+  padding: 16px 16px 18px;
+  box-shadow: var(--shadow-1);
+  transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+  scroll-snap-align: start;
+  outline: none; /* we'll draw our own focus */
+}
+
+/* Decorative timeline dot/line */
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+}
+.card::before {
+  top: -16px;
+  width: 10px; height: 10px;
+  background: var(--intel-blue);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(124,200,255,0.25);
+}
+.card::after {
+  top: -30px;
+  width: 2px; height: 20px;
+  background: linear-gradient(180deg, rgba(0,104,181,0.4), transparent);
+  left: 18px;
+}
+
+.card:focus-visible {
+  box-shadow: var(--shadow-blue);
+  border-color: var(--ring);
+}
+
+/* Hover/Focus lift + transform (LevelUp: Transforms) */
+.card:hover,
+.card:focus-within {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: var(--shadow-2);
+  border-color: #CDE4FA;
+}
+
+/* Year + title */
+.card__year {
+  display: inline-block;
+  font-weight: 800;
+  color: var(--intel-blue);
+  background: #EAF4FF;
+  border: 1px solid #D6E9FF;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.card__title {
+  margin: 6px 0 10px;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+
+/* Image */
+.card__img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid #E6EEF7;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.07);
+  margin: 8px 0 10px;
+}
+
+/* ===== Reveal more details on hover/focus ===== */
+.card p {
+  --teaser-lines: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--teaser-lines);
+  overflow: hidden;
+  max-height: 3.2em;                 /* ~2 lines */
+  transition: max-height .35s ease, opacity .25s ease;
+  color: #2B2F36;
+}
+.card:hover p,
+.card:focus-within p {
+  -webkit-line-clamp: unset;
+  max-height: 100vh;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  border-top: 1px solid #EDF2F7;
+  background: #FAFCFF;
+  margin-top: 32px;
+}
+.footer__inner {
+  padding: 22px 0 40px;
+  color: #5C6470;
+  text-align: center;
+}
+.footer .you { color: var(--intel-blue); font-weight: 600; }
+
+/* Small screens: stack vertically instead of horizontal-scroll */
+@media (max-width: 760px) {
+  .timeline {
+    flex-direction: column;
+    overflow-x: hidden;
+    gap: 16px;
+    scroll-snap-type: none;
+  }
+  .card::after, .card::before { left: 10px; }
+}
+
+/* users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+  html { scroll-behavior: auto; }
+}
