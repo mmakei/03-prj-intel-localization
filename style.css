@@ -8,14 +8,14 @@ button, a { color: inherit; }
 
 /* ========== THEME ========== */
 :root{
-  --intel-blue: #0068B5;   /* Intel primary */
-  --intel-blue-2: #0F75BC; /* lighter accent */
-  --ink: #0A0A0B;          /* near-black text */
-  --muted: #6B7380;        /* muted text */
-  --bg: #0B1B2B;           /* deep navy for hero */
-  --card: #0F2235;         /* card bg on hero, used as shadow tint */
-  --surface: #FFFFFF;      /* page surface */
-  --ring: #7CC8FF;         /* focus ring */
+  --intel-blue: #0068B5;
+  --intel-blue-2: #0F75BC;
+  --ink: #0A0A0B;
+  --muted: #6B7380;
+  --bg: #0B1B2B;
+  --card: #0F2235;
+  --surface: #FFFFFF;
+  --ring: #7CC8FF;
   --radius-xl: 20px;
   --radius-lg: 16px;
   --radius-md: 12px;
@@ -90,29 +90,26 @@ body {
   font-size: 14px;
 }
 
-/* OUTER SCROLLER — FLEX instead of grid */
 .timeline {
   --gap: clamp(14px, 2.4vw, 22px);
-  display: flex;                         /* FLEXBOX per rubric */
+  display: flex;
   gap: var(--gap);
   overflow-x: auto;
   overflow-y: hidden;
   padding: 26px 6px 10px;
   margin-top: -40px;
-  scroll-snap-type: x mandatory;         /* LevelUp: Scroll Snap */
+  scroll-snap-type: x mandatory;
   scroll-padding-inline: 10px;
   -webkit-overflow-scrolling: touch;
 }
 
-/* Pretty scrollbar (WebKit + Firefox) */
 .timeline::-webkit-scrollbar { height: 10px; }
 .timeline::-webkit-scrollbar-track { background: #EAF2F9; border-radius: 999px; }
 .timeline::-webkit-scrollbar-thumb { background: #C7DDF3; border-radius: 999px; }
 .timeline { scrollbar-color: #C7DDF3 #EAF2F9; scrollbar-width: thin; }
 
-/* Timeline cards */
 .card {
-  flex: 0 0 min(420px, 90vw);            /* width for horizontal scroller */
+  flex: 0 0 min(420px, 90vw);
   position: relative;
   background: #F9FBFE;
   border: 1px solid #DDE8F4;
@@ -121,10 +118,9 @@ body {
   box-shadow: var(--shadow-1);
   transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
   scroll-snap-align: start;
-  outline: none; /* we'll draw our own focus */
+  outline: none;
 }
 
-/* Decorative timeline dot/line */
 .card::before,
 .card::after {
   content: "";
@@ -150,7 +146,6 @@ body {
   border-color: var(--ring);
 }
 
-/* Hover/Focus lift + transform (LevelUp: Transforms) */
 .card:hover,
 .card:focus-within {
   transform: translateY(-6px) scale(1.015);
@@ -158,7 +153,6 @@ body {
   border-color: #CDE4FA;
 }
 
-/* Year + title */
 .card__year {
   display: inline-block;
   font-weight: 800;
@@ -176,7 +170,6 @@ body {
   letter-spacing: -0.01em;
 }
 
-/* Image */
 .card__img {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -187,14 +180,13 @@ body {
   margin: 8px 0 10px;
 }
 
-/* ===== Reveal more details on hover/focus ===== */
 .card p {
   --teaser-lines: 2;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: var(--teaser-lines);
   overflow: hidden;
-  max-height: 3.2em;                 /* ~2 lines */
+  max-height: 3.2em;
   transition: max-height .35s ease, opacity .25s ease;
   color: #2B2F36;
 }
@@ -217,7 +209,6 @@ body {
 }
 .footer .you { color: var(--intel-blue); font-weight: 600; }
 
-/* Small screens: stack vertically instead of horizontal-scroll */
 @media (max-width: 760px) {
   .timeline {
     flex-direction: column;
@@ -228,8 +219,12 @@ body {
   .card::after, .card::before { left: 10px; }
 }
 
-/* users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
   html { scroll-behavior: auto; }
 }
+
+/* small contrast/visibility nudges */
+.btn.btn-primary { color: #fff; }
+header.hero a,
+footer a.link-light { text-decoration: underline; }
